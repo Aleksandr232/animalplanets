@@ -1,5 +1,5 @@
 import * as ScreenOrientation from 'expo-screen-orientation'
-import { Dimensions, ScrollView, StyleSheet, Text } from 'react-native'
+import { Dimensions, ScrollView, StyleSheet, Text, ImageBackground } from 'react-native'
 import { Video } from 'expo-av'
 import { setStatusBarHidden } from 'expo-status-bar'
 import React, { useRef, useState } from 'react'
@@ -11,6 +11,7 @@ const App = () => {
   const refVideo = useRef(null)
   const refVideo2 = useRef(null)
   const refScrollView = useRef(null)
+  
 
   return (
     <ScrollView
@@ -24,149 +25,14 @@ const App = () => {
       style={styles.container}
       contentContainerStyle={styles.contentContainer}
     >
-      <Text style={[styles.text, { fontWeight: 'bold', textTransform: 'uppercase' }]}>
-        Examples
-      </Text>
-      {/* ShouldPlay (autoplay) is true only in the first example */}
-      <Text style={styles.text}>Basic</Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: true,
-          resizeMode: Video.RESIZE_MODE_CONTAIN,
-          source: {
-            uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-          },
-        }}
-      />
-
-      <Text style={styles.text}>Local file</Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: Video.RESIZE_MODE_CONTAIN,
-          source: require('../screens/local.mp4'),
-        }}
-        style={{ height: 160 }}
-      />
-
-      <Text style={styles.text}>Only video without controls</Text>
+    
+      {/* <Text style={styles.text}>Fullscren</Text> */}
       <VideoPlayer
         videoProps={{
           shouldPlay: false,
           resizeMode: Video.RESIZE_MODE_CONTAIN,
           source: {
-            uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-          },
-        }}
-        slider={{
-          visible: false,
-        }}
-        fullscreen={{
-          visible: false,
-        }}
-        timeVisible={false}
-        style={{ height: 160 }}
-      />
-
-      <Text style={styles.text}>Some styling</Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: Video.RESIZE_MODE_CONTAIN,
-          source: {
-            uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-          },
-        }}
-        style={{
-          videoBackgroundColor: 'transparent',
-          controlsBackgroundColor: 'red',
-          height: 200,
-        }}
-      />
-
-      <Text style={styles.text}>With custom icons</Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: Video.RESIZE_MODE_CONTAIN,
-          source: {
-            uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-          },
-        }}
-        icon={{
-          play: <Text style={{ color: '#FFF' }}>PLAY</Text>,
-          pause: <Text style={{ color: '#FFF' }}>PAUSE</Text>,
-        }}
-        style={{ height: 160 }}
-      />
-
-      <Text style={styles.text}>With some more styling</Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: Video.RESIZE_MODE_CONTAIN,
-          source: {
-            uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-          },
-        }}
-        style={{
-          height: 160,
-          width: 160,
-          videoBackgroundColor: 'yellow',
-          controlsBackgroundColor: 'blue',
-        }}
-      />
-
-      <Text style={styles.text}>Fullscren icon hidden</Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: Video.RESIZE_MODE_CONTAIN,
-          source: {
-            uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-          },
-        }}
-        fullscreen={{
-          visible: false,
-        }}
-        style={{ height: 160 }}
-      />
-
-      <Text style={styles.text}>Ref - clicking on Enter/Exit fullscreen changes playing</Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: Video.RESIZE_MODE_CONTAIN,
-          source: {
-            uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-          },
-          ref: refVideo,
-        }}
-        fullscreen={{
-          enterFullscreen: () => {
-            setInFullsreen(!inFullscreen)
-            refVideo.current.setStatusAsync({
-              shouldPlay: true,
-            })
-          },
-          exitFullscreen: () => {
-            setInFullsreen(!inFullscreen)
-            refVideo.current.setStatusAsync({
-              shouldPlay: false,
-            })
-          },
-          inFullscreen,
-        }}
-        style={{ height: 160 }}
-      />
-
-      <Text style={styles.text}>Fullscren</Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: Video.RESIZE_MODE_CONTAIN,
-          source: {
-            uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+            uri: 'https://player.vimeo.com/external/154778744.sd.mp4?s=47011bbd0f9d24fc90496368da5d716164a1ec2f&profile_id=112',
           },
           ref: refVideo2,
         }}
@@ -187,29 +53,171 @@ const App = () => {
           },
         }}
         style={{
-          videoBackgroundColor: 'black',
           height: inFullscreen2 ? Dimensions.get('window').width : 160,
-          width: inFullscreen2 ? Dimensions.get('window').height : 320,
+          width: inFullscreen2 ? Dimensions.get('window').height : 420,
         }}
       />
-
-      <Text style={styles.text}>Custom title</Text>
+      <Text style={styles.text}></Text>
       <VideoPlayer
         videoProps={{
           shouldPlay: false,
           resizeMode: Video.RESIZE_MODE_CONTAIN,
           source: {
-            uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+            uri: 'https://player.vimeo.com/external/465226691.sd.mp4?s=c01f11a6e2f6b9c5515bcf82ff843a9aea6a091c&profile_id=164',
+          },
+          ref: refVideo2,
+        }}
+        fullscreen={{
+          inFullscreen: inFullscreen2,
+          enterFullscreen: async () => {
+            setStatusBarHidden(true, 'fade')
+            setInFullsreen2(!inFullscreen2)
+            await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_LEFT)
+            refVideo2.current.setStatusAsync({
+              shouldPlay: true,
+            })
+          },
+          exitFullscreen: async () => {
+            setStatusBarHidden(false, 'fade')
+            setInFullsreen2(!inFullscreen2)
+            await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
           },
         }}
         style={{
-          videoBackgroundColor: 'black',
+          height: inFullscreen2 ? Dimensions.get('window').width : 160,
+          width: inFullscreen2 ? Dimensions.get('window').height : 420,
         }}
-        header={<Text style={{ color: '#FFF' }}>Custom title</Text>}
       />
+      <Text style={styles.text}></Text>
+      <VideoPlayer
+        videoProps={{
+          shouldPlay: false,
+          resizeMode: Video.RESIZE_MODE_CONTAIN,
+          source: {
+            uri: 'https://player.vimeo.com/external/373138314.sd.mp4?s=d4a76c19896b3a27e8499877867b2f1d449c4b8c&profile_id=164',
+          },
+          ref: refVideo2,
+        }}
+        fullscreen={{
+          inFullscreen: inFullscreen2,
+          enterFullscreen: async () => {
+            setStatusBarHidden(true, 'fade')
+            setInFullsreen2(!inFullscreen2)
+            await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_LEFT)
+            refVideo2.current.setStatusAsync({
+              shouldPlay: true,
+            })
+          },
+          exitFullscreen: async () => {
+            setStatusBarHidden(false, 'fade')
+            setInFullsreen2(!inFullscreen2)
+            await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
+          },
+        }}
+        style={{
+          height: inFullscreen2 ? Dimensions.get('window').width : 160,
+          width: inFullscreen2 ? Dimensions.get('window').height : 420,
+        }}
+      />
+      <Text style={styles.text}></Text>
+      <VideoPlayer
+        videoProps={{
+          shouldPlay: false,
+          resizeMode: Video.RESIZE_MODE_CONTAIN,
+          source: {
+            uri: 'https://player.vimeo.com/external/357512333.sd.mp4?s=449519c88e84ddea0b70ad2f253a1cf7fb829bae&profile_id=164',
+          },
+          ref: refVideo2,
+        }}
+        fullscreen={{
+          inFullscreen: inFullscreen2,
+          enterFullscreen: async () => {
+            setStatusBarHidden(true, 'fade')
+            setInFullsreen2(!inFullscreen2)
+            await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_LEFT)
+            refVideo2.current.setStatusAsync({
+              shouldPlay: true,
+            })
+          },
+          exitFullscreen: async () => {
+            setStatusBarHidden(false, 'fade')
+            setInFullsreen2(!inFullscreen2)
+            await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
+          },
+        }}
+        style={{
+          height: inFullscreen2 ? Dimensions.get('window').width : 160,
+          width: inFullscreen2 ? Dimensions.get('window').height : 420,
+        }}
+      />
+      <Text style={styles.text}></Text>
+      <VideoPlayer
+        videoProps={{
+          shouldPlay: false,
+          resizeMode: Video.RESIZE_MODE_CONTAIN,
+          source: {
+            uri: 'https://player.vimeo.com/external/174173914.sd.mp4?s=97c086934c0f49e35bc74145bf03f70dd1c96801&profile_id=164n',
+          },
+          ref: refVideo2,
+        }}
+        fullscreen={{
+          inFullscree: inFullscreen2,
+          enterFullscreen: async () => {
+            setStatusBarHidden(true, 'fade')
+            setInFullsreen2(!inFullscreen2)
+            await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_LEFT)
+            refVideo2.current.setStatusAsync({
+              shouldPlay: true,
+            })
+          },
+          exitFullscreen: async () => {
+            setStatusBarHidden(false, 'fade')
+            setInFullsreen2(!inFullscreen2)
+            await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
+          },
+        }}
+        style={{
+          height: inFullscreen2 ? Dimensions.get('window').width : 160,
+          width: inFullscreen2 ? Dimensions.get('window').height : 420,
+        }}
+      />
+      <Text style={styles.text}></Text>
+      <VideoPlayer
+        videoProps={{
+          shouldPlay: false,
+          resizeMode: Video.RESIZE_MODE_CONTAIN,
+          source: {
+            uri: 'https://media.istockphoto.com/videos/school-of-fishsharks-swim-in-a-circle-video-id1255754954',
+          },
+          ref: refVideo2,
+        }}
+        fullscreen={{
+          inFullscreen: inFullscreen2,
+          enterFullscreen: async () => {
+            setStatusBarHidden(true, 'fade')
+            setInFullsreen2(!inFullscreen2)
+            await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_LEFT)
+            refVideo2.current.setStatusAsync({
+              shouldPlay: true,
+            })
+          },
+          exitFullscreen: async () => {
+            setStatusBarHidden(false, 'fade')
+            setInFullsreen2(!inFullscreen2)
+            await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
+          },
+        }}
+        style={{
+          height: inFullscreen2 ? Dimensions.get('window').width : 160,
+          width: inFullscreen2 ? Dimensions.get('window').height : 420,
+        }}
+      />
+      
     </ScrollView>
-  )
+    
+)
 }
+export default App
 
 const styles = StyleSheet.create({
   container: {
@@ -222,9 +230,9 @@ const styles = StyleSheet.create({
     paddingTop: 40,
   },
   text: {
-    marginTop: 36,
-    marginBottom: 12,
+    marginTop: 3,
+    marginBottom: 1,
   },
+  
 })
 
-export default App
