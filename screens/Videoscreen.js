@@ -1,65 +1,81 @@
-
-
-import * as ScreenOrientation from 'expo-screen-orientation'
-import { Dimensions, ScrollView, StyleSheet, Text } from 'react-native'
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Dimensions, Button, ScrollView } from 'react-native';
 import { Video } from 'expo-av'
-import { setStatusBarHidden } from 'expo-status-bar'
-import React, { useRef, useState } from 'react'
-import VideoPlayer from 'expo-video-player'
+import * as FileSystem from 'expo-file-system';
 
-const Videoscreen = () => {
-  const [inFullscreen, setInFullsreen] = useState(false)
-  const [inFullscreen2, setInFullsreen2] = useState(false)
-  const refVideo = useRef(null)
-  const refVideo2 = useRef(null)
-  const refScrollView = useRef(null)
+const { width, height } = Dimensions.get('window');
+
+export default function App() {
+  const [videoUrl, setVideoUrl] = useState('https://player.vimeo.com/external/399635847.sd.mp4?s=ef0305947aff382d6e7fcd95ebdefd385a98f3a3&profile_id=139&oauth2_token_id=57447761')
+  const [videoUrl1, setVideoUrl1] = useState('https://player.vimeo.com/external/516952161.sd.mp4?s=62f27c2c8683fb3ceee7f7c9c8a06f02a2af367c&profile_id=165&oauth2_token_id=57447761')
+  const [videoUrl2, setVideoUrl2] = useState('https://player.vimeo.com/external/468451144.sd.mp4?s=1a225f021e1bb831f8973685579845d84fb2521c&profile_id=139&oauth2_token_id=57447761')
+  const [videoUrl3, setVideoUrl3] = useState('https://player.vimeo.com/external/357094766.sd.mp4?s=da9dacc0fcf9e321a4ca087386ae9340b0fc02e7&profile_id=165&oauth2_token_id=57447761')
 
   return (
-    <ScrollView
-      scrollEnabled={!inFullscreen2}
-      ref={refScrollView}
-      onContentSizeChange={() => {
-        if (inFullscreen2) {
-          refScrollView.current.scrollToEnd({ animated: true })
-        }
-      }}
-      style={styles.container}
-      contentContainerStyle={styles.contentContainer}
-    >
-
-      <Text style={styles.text}>With custom icons</Text>
-      <VideoPlayer
-        videoProps={{
-          shouldPlay: false,
-          resizeMode: Video.RESIZE_MODE_CONTAIN,
-          source: {
-            uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-          },
-        }}
-        icon={{
-          play: <Text style={{ color: '#FFF' }}>PLAY</Text>,
-          pause: <Text style={{ color: '#FFF' }}>PAUSE</Text>,
-        }}
-        style={{ height: 260 }}
+    <View style={styles.container}>
+      <ScrollView>
+     <Text></Text>
+     <Video
+        source={{ uri: videoUrl }}
+        rate={1.0}
+        volume={1.0}
+        isMuted={false}
+        resizeMode="cover"
+        shouldPlay={false}
+        isLooping={false}
+        useNativeControls
+        style={styles.video}
       />
-    </ScrollView>
-  )
+      <Text></Text>
+     <Video
+        source={{ uri: videoUrl1 }}
+        rate={1.0}
+        volume={1.0}
+        isMuted={false}
+        resizeMode="cover"
+        shouldPlay={false}
+        isLooping={false}
+        useNativeControls
+        style={styles.video}
+      />
+      <Text></Text>
+     <Video
+        source={{ uri: videoUrl2 }}
+        rate={1.0}
+        volume={1.0}
+        isMuted={false}
+        resizeMode="cover"
+        shouldPlay={false}
+        isLooping={false}
+        useNativeControls
+        style={styles.video}
+      />
+      <Text></Text>
+     <Video
+        source={{ uri: videoUrl3 }}
+        rate={1.0}
+        volume={1.0}
+        isMuted={false}
+        resizeMode="cover"
+        shouldPlay={false}
+        isLooping={false}
+        useNativeControls
+        style={styles.video}
+      />
+      </ScrollView>
+    </View>
+  );
 }
 
-export default Videoscreen
-
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#FFF',
-    flex: 1,
+  video: {
+    width: width,
+    height: height / 3
   },
-  contentContainer: {
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 40,
   },
-  text: {
-    marginTop: 36,
-    marginBottom: 12,
-  },
-})
+});
