@@ -91,7 +91,7 @@ export default Photoscreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    top: 350,
+    top: 150,
   },
   item: {
     width: screenWidth - 40,
