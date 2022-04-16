@@ -68,9 +68,8 @@ const Photoscreen = (props) => {
     );
   };
 
-  const image = { uri: 'https://images.vector-images.com/clp2/277392/clp3769954.jpg' };
+  
   return (
-    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
     <View style={styles.container}>
             <Carousel
         ref={carouselRef}
@@ -82,7 +81,6 @@ const Photoscreen = (props) => {
         hasParallaxImages={true}
       />
     </View>
-    </ImageBackground>
   );
 };
 

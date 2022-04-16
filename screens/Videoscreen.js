@@ -5,7 +5,7 @@ import * as FileSystem from 'expo-file-system';
 
 const { width, height } = Dimensions.get('window');
 
-export default function App() {
+export default function Videoscreen() {
   const [videoUrl, setVideoUrl] = useState('https://player.vimeo.com/external/399635847.sd.mp4?s=ef0305947aff382d6e7fcd95ebdefd385a98f3a3&profile_id=139&oauth2_token_id=57447761')
   const [videoUrl1, setVideoUrl1] = useState('https://player.vimeo.com/external/516952161.sd.mp4?s=62f27c2c8683fb3ceee7f7c9c8a06f02a2af367c&profile_id=165&oauth2_token_id=57447761')
   const [videoUrl2, setVideoUrl2] = useState('https://player.vimeo.com/external/468451144.sd.mp4?s=1a225f021e1bb831f8973685579845d84fb2521c&profile_id=139&oauth2_token_id=57447761')
