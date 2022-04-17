@@ -43,7 +43,7 @@ export default function Searchscreen(){
                   <Button  title='поиск' onPress={search}></Button>
                 </View>
                 <View style={styles.textview}>
-                <Text style={styles.text}>{all.name?.Object}</Text>     
+                <Text style={styles.text}>{all.name}</Text>     
                     
             </View>
     </View>
