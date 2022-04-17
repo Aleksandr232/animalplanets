@@ -35,7 +35,7 @@ export default function Searchscreen(){
               textAlign: "center",
               right:100,          
               }}
-              placeholder="Search..."
+              placeholder="Найти животное..."
               onChangeText={setSearchAnimal}
               value={searchanimal}
               />
@@ -43,8 +43,12 @@ export default function Searchscreen(){
                   <Button  title='поиск' onPress={search}></Button>
                 </View>
                 <View style={styles.textview}>
-                <Text style={styles.text}>{all.name}</Text>     
-                    
+                <Text style={styles.text}>Имя:{all?.animal?.name}</Text>     
+                <Text style={styles.text1}>Королество:{all?.animal?.kingdom}</Text>
+                <Text style={styles.text2}>Тип:{all?.animal?.phylum}</Text>
+                <Text style={styles.text3}>Класс:{all?.animal?.classname}</Text>
+                <Text style={styles.text4}>Отряд:{all?.animal?.order}</Text>
+                <Text style={styles.text5}>Семейство:{all?.animal?.family}</Text>
             </View>
     </View>
 )
@@ -62,19 +66,58 @@ const styles=StyleSheet.create({
     button:{
         bottom: 60,
         width: 100,
-        left: 170,
+        left: 150,
         color: "black",
         height: 100,
         fontSize: 20,
     },
     textview:{
-        flex: 1,
+        flex:1,
         textAlign: 'center',
-        left:100
+        width: 300,
+        
     },    
     text:{
-       bottom:200,
+        bottom: 99,
+        right: 130,
+        textAlign:'center',
+        color:'black',
+        fontSize: 30,
+        
+    },
+    text1:{
+        bottom:95,
         textAlign: 'center',
-        color:'black', 
-    }
+        color:'black',
+        fontSize: 30,
+        right: 50,
+    },
+    text2:{
+        bottom:90,
+        textAlign: 'center',
+        color:'black',
+        fontSize: 30,
+        right: 108,
+    },
+    text3:{
+        bottom:90,
+        textAlign: 'center',
+        color:'black',
+        fontSize: 30,
+        right: 80,
+    },
+    text4:{
+        bottom:90,
+        textAlign: 'center',
+        color:'black',
+        fontSize: 30,
+        right: 85,
+    },
+    text5:{
+        bottom:90,
+        textAlign: 'center',
+        color:'black',
+        fontSize: 30,
+        right: 59,
+    },
 })
