@@ -1,16 +1,23 @@
 import React,{useState} from 'react';
 import { View, Text, StyleSheet, TextInput, Button} from "react-native";
 
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Host': 'animaliapi3.p.rapidapi.com',
+		'X-RapidAPI-Key': '31b771a834msh2cfce94e71aff52p134a34jsn1fda1dead0a1'
+	}
+};
 
 export default function Searchscreen(){
     const [searchanimal, setSearchAnimal] = useState('');
-  const [species, setSpecies] = useState({});
+  const [all, setAll] = useState({});
 
   const search =  () => {
-    return fetch('http://bloowatch.org/developers/json/species')
+    return fetch(`https://animaliapi3.p.rapidapi.com/all/${searchanimal}`, options)
        .then(res => res.json())
        .then(result => {
-        setSpecies(result);
+        setAll(result);
         setSearchAnimal('');
          console.log(result);
        });
@@ -20,7 +27,7 @@ export default function Searchscreen(){
         <TextInput
               type="text"
               style={{ color: "black",
-              top: 10,
+              top:10,
               width:'100%',
               height: 100,
               fontSize: 20,
@@ -36,7 +43,7 @@ export default function Searchscreen(){
                   <Button  title='поиск' onPress={search}></Button>
                 </View>
                 <View style={styles.textview}>
-                <Text style={styles.text}>{species.name}</Text>     
+                <Text style={styles.text}>{all.name?.Object}</Text>     
                     
             </View>
     </View>
@@ -61,8 +68,13 @@ const styles=StyleSheet.create({
         fontSize: 20,
     },
     textview:{
+        flex: 1,
         textAlign: 'center',
-        width: 300,
-        left: 50
+        left:100
     },    
+    text:{
+       bottom:200,
+        textAlign: 'center',
+        color:'black', 
+    }
 })
