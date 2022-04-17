@@ -49,6 +49,8 @@ export default function Searchscreen(){
                 <Text style={styles.text3}>Класс:{all?.animal?.classname}</Text>
                 <Text style={styles.text4}>Отряд:{all?.animal?.order}</Text>
                 <Text style={styles.text5}>Семейство:{all?.animal?.family}</Text>
+                <Text style={styles.text6}>Род:{all?.animal?.genus}</Text>
+                <Text style={styles.text7}>Научное название:{all?.animal?.scientificname}</Text>
             </View>
     </View>
 )
@@ -82,42 +84,56 @@ const styles=StyleSheet.create({
         right: 130,
         textAlign:'center',
         color:'black',
-        fontSize: 30,
+        fontSize: 20,
         
     },
     text1:{
         bottom:95,
         textAlign: 'center',
         color:'black',
-        fontSize: 30,
+        fontSize: 20,
         right: 50,
     },
     text2:{
         bottom:90,
         textAlign: 'center',
         color:'black',
-        fontSize: 30,
+        fontSize: 20,
         right: 108,
     },
     text3:{
         bottom:90,
         textAlign: 'center',
         color:'black',
-        fontSize: 30,
+        fontSize: 20,
         right: 80,
     },
     text4:{
         bottom:90,
         textAlign: 'center',
         color:'black',
-        fontSize: 30,
+        fontSize: 20,
         right: 85,
     },
     text5:{
         bottom:90,
         textAlign: 'center',
         color:'black',
-        fontSize: 30,
+        fontSize: 20,
         right: 59,
+    },
+    text6:{
+        bottom:90,
+        textAlign: 'center',
+        color:'black',
+        fontSize: 20,
+        right: 125,
+    },
+    text7:{
+        bottom:90,
+        textAlign: 'center',
+        color:'black',
+        fontSize: 20,
+        right: 50,
     },
 })
