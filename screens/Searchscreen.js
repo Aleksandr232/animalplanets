@@ -68,7 +68,7 @@ const styles=StyleSheet.create({
     button:{
         bottom: 60,
         width: 100,
-        left: 150,
+        left:100,
         color: "black",
         height: 100,
         fontSize: 20,
@@ -77,11 +77,11 @@ const styles=StyleSheet.create({
         flex:1,
         textAlign: 'center',
         width: 300,
+        right:30
         
     },    
     text:{
         bottom: 99,
-        right: 130,
         textAlign:'center',
         color:'black',
         fontSize: 20,
@@ -92,48 +92,41 @@ const styles=StyleSheet.create({
         textAlign: 'center',
         color:'black',
         fontSize: 20,
-        right: 50,
     },
     text2:{
         bottom:90,
         textAlign: 'center',
         color:'black',
         fontSize: 20,
-        right: 108,
     },
     text3:{
         bottom:90,
         textAlign: 'center',
         color:'black',
         fontSize: 20,
-        right: 80,
     },
     text4:{
         bottom:90,
         textAlign: 'center',
         color:'black',
         fontSize: 20,
-        right: 85,
     },
     text5:{
         bottom:90,
         textAlign: 'center',
         color:'black',
         fontSize: 20,
-        right: 59,
     },
     text6:{
         bottom:90,
         textAlign: 'center',
         color:'black',
         fontSize: 20,
-        right: 125,
     },
     text7:{
         bottom:90,
         textAlign: 'center',
         color:'black',
         fontSize: 20,
-        right: 50,
     },
 })
