@@ -1,5 +1,10 @@
 import React,{useState} from 'react';
 import { View, Text, StyleSheet, TextInput, Button} from "react-native";
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+
+
+
+
 
 const options = {
 	method: 'GET',
@@ -22,8 +27,10 @@ export default function Searchscreen(){
          console.log(result);
        });
 }
+
   return(
     <View style={styles.container}>
+        
         <TextInput
               type="text"
               style={{ color: "black",
@@ -40,7 +47,12 @@ export default function Searchscreen(){
               value={searchanimal}
               />
               <View style={styles.button}>
-                  <Button  title='поиск' onPress={search}></Button>
+              <FontAwesome5.Button
+                    name='search'
+                    backgroundColor="#3b5998"
+                    onPress={search}
+                >
+                </FontAwesome5.Button>
                 </View>
                 <View style={styles.textview}>
                 <Text style={styles.text}>Имя:{all?.animal?.name}</Text>     
