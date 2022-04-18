@@ -4,7 +4,7 @@
 - **Api [AnimaliAPI](https://animaliapi.herokuapp.com/)**
 
 **Первый экран**![**photoscreen**](./assets/photoscreen.png)
-**Второй экран**![videoscreen](../animalplanets/assets//videoscreen.png)
-**Третий экран**![Searchscreen](../animalplanets//assets/searchscreen.png)
+**Второй экран**![videoscreen](./assets//videoscreen.png)
+**Третий экран**![Searchscreen](./assets/searchscreen.png)
 
-- В процессе доработки
+- **В процессе доработки...**
