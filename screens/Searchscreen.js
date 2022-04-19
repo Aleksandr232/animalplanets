@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
-import { View, Text, StyleSheet, TextInput, Button} from "react-native";
+import { View, Text, StyleSheet, TextInput, Button, FlatList, Image} from "react-native";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-
+import { DATA } from './data';
 
 
 
@@ -16,8 +16,8 @@ const options = {
 
 export default function Searchscreen(){
     const [searchanimal, setSearchAnimal] = useState('');
-  const [all, setAll] = useState({});
-
+    const [all, setAll] = useState({});
+    const post = DATA.find(p=>p.id)
   const search =  () => {
     return fetch(`https://animaliapi3.p.rapidapi.com/all/${searchanimal}`, options)
        .then(res => res.json())
@@ -25,6 +25,7 @@ export default function Searchscreen(){
         setAll(result);
         setSearchAnimal('');
          console.log(result);
+         console.log(post)
        });
 }
 
@@ -54,7 +55,7 @@ export default function Searchscreen(){
                 >
                 </FontAwesome5.Button>
                 </View>
-                <View style={styles.textview}>
+                <View style={styles.textview} data={DATA}>
                 <Text style={styles.text}>Имя:{all?.animal?.name}</Text>     
                 <Text style={styles.text1}>Королество:{all?.animal?.kingdom}</Text>
                 <Text style={styles.text2}>Тип:{all?.animal?.phylum}</Text>
@@ -63,7 +64,16 @@ export default function Searchscreen(){
                 <Text style={styles.text5}>Семейство:{all?.animal?.family}</Text>
                 <Text style={styles.text6}>Род:{all?.animal?.genus}</Text>
                 <Text style={styles.text7}>Научное название:{all?.animal?.scientificname}</Text>
+                <Image
+                 style={styles.image}
+                 source={{uri:post.img}}
+                 />
             </View>
+            
+                 
+             
+            
+            
     </View>
 )
 }
@@ -79,8 +89,8 @@ const styles=StyleSheet.create({
     },
     button:{
         bottom: 60,
-        width: 100,
-        left:100,
+        width: 70,
+        left:140,
         color: "black",
         height: 100,
         fontSize: 20,
@@ -89,7 +99,8 @@ const styles=StyleSheet.create({
         flex:1,
         textAlign: 'center',
         width: 300,
-        right:30
+        right:50,
+
         
     },    
     text:{
@@ -141,4 +152,13 @@ const styles=StyleSheet.create({
         color:'black',
         fontSize: 20,
     },
+    flat:{
+        flex:1,
+        top: 20
+    },
+    image:{
+        flex: 1,
+        width: 400,
+        bottom: 20,
+    }
 })
