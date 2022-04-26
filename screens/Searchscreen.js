@@ -17,7 +17,7 @@ const options = {
 export default function Searchscreen(){
     const [searchanimal, setSearchAnimal] = useState('');
     const [all, setAll] = useState({});
-    const post = DATA.find(p=>p.id)
+    /* const post = DATA.find(p=>p.id) */
   const search =  () => {
     return fetch(`https://animaliapi3.p.rapidapi.com/all/${searchanimal}`, options)
        .then(res => res.json())
@@ -25,7 +25,7 @@ export default function Searchscreen(){
         setAll(result);
         setSearchAnimal('');
          console.log(result);
-         console.log(post)
+        
        });
 }
 
@@ -55,7 +55,7 @@ export default function Searchscreen(){
                 >
                 </FontAwesome5.Button>
                 </View>
-                <View style={styles.textview} data={DATA}>
+                <View style={styles.textview} /* data={DATA} */>
                 <Text style={styles.text}>Имя:{all?.animal?.name}</Text>     
                 <Text style={styles.text1}>Королество:{all?.animal?.kingdom}</Text>
                 <Text style={styles.text2}>Тип:{all?.animal?.phylum}</Text>
@@ -64,10 +64,14 @@ export default function Searchscreen(){
                 <Text style={styles.text5}>Семейство:{all?.animal?.family}</Text>
                 <Text style={styles.text6}>Род:{all?.animal?.genus}</Text>
                 <Text style={styles.text7}>Научное название:{all?.animal?.scientificname}</Text>
-                <Image
-                 style={styles.image}
-                 source={{uri:post.img}}
-                 />
+                {DATA.map((post)=>(
+                    <Image
+                    style={styles.image}
+                    source={{uri:post.img}}
+                    />
+                    
+                ))}
+               
             </View>
             
                  
