@@ -4,9 +4,9 @@
     "slug": "animalplanets",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/animalicon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/animalicon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

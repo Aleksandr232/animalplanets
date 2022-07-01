@@ -34,14 +34,17 @@ export default function Searchscreen(){
         
         <TextInput
               type="text"
-              style={{ color: "black",
+              style={{ color: "#8a2be2",
               top:10,
               width:'100%',
               height: 100,
               fontSize: 20,
               fontWeight: "bold",
               textAlign: "center",
-              right:100,          
+              right:100,
+              
+              
+                     
               }}
               placeholder="Найти животное..."
               onChangeText={setSearchAnimal}
@@ -50,7 +53,7 @@ export default function Searchscreen(){
               <View style={styles.button}>
               <FontAwesome5.Button
                     name='search'
-                    backgroundColor="#3b5998"
+                    backgroundColor="#8a2be2"
                     onPress={search}
                 >
                 </FontAwesome5.Button>
@@ -81,6 +84,7 @@ const styles=StyleSheet.create({
         flex:1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor:'#000000'
     },
     title:{
         fontSize: 20
@@ -104,50 +108,50 @@ const styles=StyleSheet.create({
     text:{
         bottom: 99,
         textAlign:'center',
-        color:'black',
+        color:'#8a2be2',
         fontSize: 20,
         
     },
     text1:{
         bottom:95,
         textAlign: 'center',
-        color:'black',
+        color:'#8a2be2',
         fontSize: 20,
     },
     text2:{
         bottom:90,
         textAlign: 'center',
-        color:'black',
+        color:'#8a2be2',
         fontSize: 20,
     },
     text3:{
         bottom:90,
         textAlign: 'center',
-        color:'black',
+        color:'#8a2be2',
         fontSize: 20,
     },
     text4:{
         bottom:90,
         textAlign: 'center',
-        color:'black',
+        color:'#8a2be2',
         fontSize: 20,
     },
     text5:{
         bottom:90,
         textAlign: 'center',
-        color:'black',
+        color:'#8a2be2',
         fontSize: 20,
     },
     text6:{
         bottom:90,
         textAlign: 'center',
-        color:'black',
+        color:'#8a2be2',
         fontSize: 20,
     },
     text7:{
         bottom:90,
         textAlign: 'center',
-        color:'black',
+        color:'#8a2be2',
         fontSize: 20,
     },
     flat:{
