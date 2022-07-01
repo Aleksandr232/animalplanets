@@ -56,7 +56,7 @@ const Photoscreen = (props) => {
 
   const renderItem = ({ item, index }, parallaxProps) => {
     return (
-      <View style={styles.item}>
+      <ImageBackground style={styles.item}>
        <ParallaxImage
           source={{ uri: item.illustration }}
           containerStyle={styles.imageContainer}
@@ -64,14 +64,15 @@ const Photoscreen = (props) => {
           parallaxFactor={0}
           {...parallaxProps}
         />
-      </View>
+      </ImageBackground >
     );
   };
 
   
   return (
-    <View style={styles.container}>
-            <Carousel
+    <ImageBackground style={styles.container}>
+         <View style={styles.img}>
+         <Carousel
         ref={carouselRef}
         sliderWidth={screenWidth}
         sliderHeight={screenWidth}
@@ -80,7 +81,8 @@ const Photoscreen = (props) => {
         renderItem={renderItem}
         hasParallaxImages={true}
       />
-    </View>
+         </View>
+    </ImageBackground >
   );
 };
 
@@ -89,16 +91,20 @@ export default Photoscreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    top: 230,
+    backgroundColor:'#000000'
+  },
+  img:{
+    top:150
   },
   item: {
     width: screenWidth - 40,
     height: screenWidth - 50,
+    backgroundColor: "#4682b4",
   },
   imageContainer: {
     flex: 1,
     marginBottom: Platform.select({ ios: 0, android: 1 }), // Prevent a random Android rendering issue
-    backgroundColor: "white",
+    backgroundColor: "#4682b4",
     borderRadius: 8,
   },
   image: {

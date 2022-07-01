@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import { View, Text, StyleSheet, TextInput, Button, FlatList, Image} from "react-native";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { DATA } from './data';
+
 
 
 
@@ -64,13 +64,7 @@ export default function Searchscreen(){
                 <Text style={styles.text5}>Семейство:{all?.animal?.family}</Text>
                 <Text style={styles.text6}>Род:{all?.animal?.genus}</Text>
                 <Text style={styles.text7}>Научное название:{all?.animal?.scientificname}</Text>
-                {DATA.map((post)=>(
-                    <Image
-                    style={styles.image}
-                    source={{uri:post.img}}
-                    />
-                    
-                ))}
+                
                
             </View>
             
